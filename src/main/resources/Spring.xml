@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+    <bean name="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/demo?useLegacyDatetimeCode=false&amp;serverTimezone=CET&amp;useSSL=false" />
+        <property name="username" value="root" />
+        <property name="password" value="babajaga4" />
+        <property name="initialSize" value="2" />
+        <property name="maxTotal" value="4" />
+    </bean>
+
+    <context:annotation-config />
+    <context:component-scan base-package="com.ruszkowski89.Spring" />
+
+</beans>
