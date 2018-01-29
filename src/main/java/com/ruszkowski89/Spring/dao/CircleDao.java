@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import java.sql.*;
 import java.util.List;
 
-@Component
 public class CircleDao extends JdbcDaoSupport {
 
     public void insertCircle(Circle circle){

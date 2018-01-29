@@ -20,6 +20,22 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="com.ruszkowski89.Spring.model" />
+        <property name="hibernateProperties" >
+            <props>
+                <prop key="dialect">org.hibernate.dialect.MySQL57Dialect</prop>
+                <prop key="show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto" >create</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager" >
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
     <context:annotation-config />
     <context:component-scan base-package="com.ruszkowski89.Spring" />
 
